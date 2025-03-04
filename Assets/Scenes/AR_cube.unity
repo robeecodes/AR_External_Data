@@ -435,8 +435,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
-  far clip plane: 20
+  near clip plane: 0.01
+  far clip plane: 200
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -671,6 +671,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DataURL: https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=
+  RockText: {fileID: 6620908227635323547, guid: 58029de0e73d34772b53c38d7958224f,
+    type: 3}
+  RockInstances:
+  - {fileID: 5156602594975849616, guid: f02f8f8cb3c0b4ec58a2a723d42d21b5, type: 3}
+  - {fileID: 192732042235453640, guid: 2a4231ff3982c4dec9be7dd13e34aca2, type: 3}
+  - {fileID: 7157339178947088500, guid: 19b62307254d44ef9b4343c16fe5f074, type: 3}
 --- !u!4 &2086209038
 Transform:
   m_ObjectHideFlags: 0

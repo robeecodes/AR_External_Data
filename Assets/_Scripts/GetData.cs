@@ -7,8 +7,10 @@ using System.Linq;
 
 public class GetData : MonoBehaviour {
     [SerializeField] private string DataURL;
+    [SerializeField] private GameObject RockText;
+    [SerializeField] private GameObject[] RockInstances;
 
-    private string results;
+    private string _results;
     
     private void Start() {
         StartCoroutine(RequestData());
@@ -32,16 +34,9 @@ public class GetData : MonoBehaviour {
         
         var dangerousAsteroids = jsonObject["near_earth_objects"].Children.Where(x => x["is_potentially_hazardous_asteroid"].AsBool).ToList();
 
-        Debug.Log(dangerousAsteroids.Count());
-        
-        dangerousAsteroids.ForEach(x => {
-            Debug.Log(x["name"].Value);
-            Debug.Log(x["estimated_diameter"]["kilometers"]["estimated_diameter_min"].Value);
-            Debug.Log(x["estimated_diameter"]["kilometers"]["estimated_diameter_max"].Value);
+        dangerousAsteroids.ForEach(d => {
+            Vector3 pos = new Vector3(Random.Range(-10.0f, 5.0f), Random.Range(0f, 10.0f), Random.Range(2.0f, 10.0f));
+            Instantiate(RockInstances[Random.Range(0, RockInstances.Length)], pos, Random.rotation);
         });
-    }
-
-    private void GetDangerousAsteroidCount() {
-        
     }
 }
